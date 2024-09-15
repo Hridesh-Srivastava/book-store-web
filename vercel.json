@@ -2,10 +2,24 @@
   "version": 2,
   "builds": [
     {
-      "src": "frontend/package.json",
+      "src": "Backend/index.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "Frontend/package.json",
       "use": "@vercel/static-build",
       "config": { "distDir": "dist" }
     }
   ],
-  "routes": [{ "src": "/(.*)", "dest": "frontend/dist/$1" }]
+  "routes": [
+    {
+      "src": "/localhost:3000/(.*)",
+      "dest": "Backend/index.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "Frontend/dist/$1"
+    }
+  ],
+  "regions": ["sfo1"]
 }
