@@ -8,9 +8,7 @@
     {
       "src": "Frontend/package.json",
       "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist"
-      }
+      "config": { "distDir": "dist" }
     }
   ],
   "routes": [
@@ -22,5 +20,6 @@
       "src": "/(.*)",
       "dest": "Frontend/dist/$1"
     }
-  ]
+  ],
+  "regions": ["sfo1"]
 }
