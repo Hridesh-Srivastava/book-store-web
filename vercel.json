@@ -1,25 +1,25 @@
 {
   "version": 2,
-  "name": "node-js",
+  "name": "full-stack-app",
   "builds": [
     {
-      "src": "frontend/build/**/*",
-      "use": "@vercel/static"
+      "src": "server/index.js",
+      "use": "@vercel/node"
     },
     {
-      "src": "backend/index.js",
-      "use": "@vercel/node"
+      "src": "client/package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "build" }
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/backend/$1"
+      "dest": "server/index.js"
     },
     {
       "src": "/(.*)",
-      "dest": "/frontend/build/$1"
+      "dest": "/client/$1"
     }
-  ],
-  "regions": ["sfo1"]
+  ]
 }
