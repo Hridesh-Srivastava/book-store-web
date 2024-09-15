@@ -13,7 +13,7 @@
   ],
   "routes": [
     {
-      "src": "/localhost:3000/(.*)",
+      "src": "/api/(.*)",
       "dest": "Backend/index.js"
     },
     {
